@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kalkulator Suhu</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>KALKULATOR SUHU</h1>
+      <a
+        class="author"
+        href="https://www.linkedin.com/in/hadiyan-fh/"
+        target="_blank"
+      >
+        Author - Hadiyan Fahmi Hariyadi ➔
+      </a>
+      <form id="temperatureForm">
+        <input
+          type="text"
+          id="temperatureInput"
+          placeholder="Masukkan suhu"
+          required
+        />
+        <select id="conversionType">
+          <option value="toFahrenheit">Celsius ke Fahrenheit</option>
+          <option value="toCelsius">Fahrenheit ke Celsius</option>
+        </select>
+        <button type="submit">Konversi</button>
+      </form>
+
+      <div id="resultSection" class="hidden">
+        <h2>Hasil Konversi: <span id="conversionResult"></span></h2>
+        <p id="explanation"></p>
+        <p class="heaven">Semoga kita semua dapat masuk surga, aamiin</p>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

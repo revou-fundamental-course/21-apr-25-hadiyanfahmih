@@ -1,0 +1,110 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 500px;
+  margin: 50px auto;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  text-align: center;
+}
+
+.author {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  color: #888;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.author:hover {
+  color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input,
+select,
+button {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  cursor: pointer;
+  transition: background 0.6s ease;
+}
+
+button:hover {
+  background-color: #007bff;
+}
+
+#resultSection {
+  margin-top: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+#conversionResult {
+  margin-left: 8px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+.heaven {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  color: #888;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .author {
+    font-size: 14px;
+  }
+}
