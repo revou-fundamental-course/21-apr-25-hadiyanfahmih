@@ -1,23 +1,28 @@
 const switchButton = document.getElementById('switchButton');
-const conversionType = document.getElementById('conversionType');
 const form = document.getElementById('temperatureForm');
 const input = document.getElementById('temperatureInput');
 const resultDiv = document.getElementById('result');
 const explanationDiv = document.getElementById('explanation');
 
-let isCtoF = true; // Mulai dari Celsius ke Fahrenheit
+let isCtoF = true;
 
-switchButton.addEventListener('click', function () {
-  isCtoF = !isCtoF;
-  conversionType.textContent = isCtoF ? "Celsius ke Fahrenheit" : "Fahrenheit ke Celsius";
-  resultDiv.textContent = "";
-  explanationDiv.textContent = "";
-});
+// Fungsi untuk melakukan konversi
+function convertTemperature() {
+  let userInput = input.value.trim();
+  userInput = userInput.replace(/\s+/g, '');
 
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
+  const commaCount = (userInput.match(/,/g) || []).length;
+  const dotCount = (userInput.match(/\./g) || []).length;
 
-  const temperature = parseFloat(input.value);
+  if (commaCount > 1 || dotCount > 1 || (commaCount + dotCount) > 1) {
+    resultDiv.textContent = "Input tidak valid!";
+    explanationDiv.textContent = "";
+    return;
+  }
+
+  userInput = userInput.replace(',', '.');
+
+  const temperature = parseFloat(userInput);
 
   if (isNaN(temperature)) {
     resultDiv.textContent = "Input tidak valid!";
@@ -25,7 +30,7 @@ form.addEventListener('submit', function (e) {
     return;
   }
 
-  let result, formula, calculation, basicConversion;
+  let result, formula, calculation, basicConversion, heaven;
 
   if (isCtoF) {
     result = (temperature * 9 / 5) + 32;
@@ -35,6 +40,7 @@ form.addEventListener('submit', function (e) {
     calculation = `Perhitungan: (${temperature} × 9/5) + 32 = ${result.toFixed(2)}°F`;
 
     basicConversion = "Konversi dasar: 1°C = 33.8°F";
+    heaven = "Semoga kita semua dapat masuk surga aamiin";
   } else {
     result = (temperature - 32) * 5 / 9;
     resultDiv.textContent = `${temperature}°F = ${result.toFixed(2)}°C`;
@@ -43,11 +49,27 @@ form.addEventListener('submit', function (e) {
     calculation = `Perhitungan: (${temperature} - 32) × 5/9 = ${result.toFixed(2)}°C`;
 
     basicConversion = "Konversi dasar: 1°F = -17.22°C";
+    heaven = "Semoga kita semua dapat masuk surga aamiin";
   }
 
   explanationDiv.innerHTML = `
     ${formula}<br>
     ${calculation}<br>
-    ${basicConversion}
+    ${basicConversion}<br><br>
+    ${heaven}
   `;
+}
+
+switchButton.addEventListener('click', function () {
+  isCtoF = !isCtoF;
+  switchButton.textContent = isCtoF ? "Celsius ⇄ Fahrenheit" : "Fahrenheit ⇄ Celsius";
+
+  if (input.value.trim() !== '') {
+    convertTemperature();
+  }
+});
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  convertTemperature();
 });
