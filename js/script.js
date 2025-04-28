@@ -6,7 +6,6 @@ const explanationDiv = document.getElementById('explanation');
 
 let isCtoF = true;
 
-// Fungsi untuk melakukan konversi
 function convertTemperature() {
   let userInput = input.value.trim();
   userInput = userInput.replace(/\s+/g, '');
