@@ -25,6 +25,14 @@ body {
   gap: 1rem;
 }
 
+.tittle{
+  display: flex;
+}
+
+img{
+  width: 40px;
+}
+
 h1 {
   color: black;
 }

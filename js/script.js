@@ -61,7 +61,7 @@ function convertTemperature() {
 
 switchButton.addEventListener('click', function () {
   isCtoF = !isCtoF;
-  switchButton.textContent = isCtoF ? "Celsius ⇄ Fahrenheit" : "Fahrenheit ⇄ Celsius";
+  switchButton.textContent = isCtoF ? "Celsius → Fahrenheit" : "Celsius ← Fahrenheit";
 
   if (input.value.trim() !== '') {
     convertTemperature();
